@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about Artist Name's background, artistic journey, and creative philosophy">
+  <title>Artist Name | About</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+  <!-- Navigation -->
+  <div id="nav-placeholder"></div>
+
+  <!-- Hero Section -->
+  <section class="relative py-32 bg-[url('https://images.pexels.com/photo/art-artist-painting-drawing-1599974.jpeg')] bg-cover bg-center">
+    <div class="absolute inset-0 bg-black opacity-60"></div>
+    <div class="relative z-10 text-center px-4">
+      <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">About the Artist</h1>
+      <p class="text-xl text-white">Journey through creativity and inspiration</p>
+    </div>
+  </section>
+
+  <!-- Biography Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/3 mb-8 md:mb-0">
+          <img src="https://images.pexels.com/photo/portrait-of-woman-artist-1599972.jpeg" alt="Artist portrait" class="rounded-full w-64 h-64 object-cover mx-auto shadow-xl">
+        </div>
+        <div class="md:w-2/3 md:pl-12">
+          <h2 class="text-3xl font-bold mb-6">Biography</h2>
+          <p class="text-lg mb-4">Born in 1985 in New York, Artist Name discovered their passion for painting at an early age. Their work explores the intersection of color theory and emotional expression.</p>
+          <p class="text-lg mb-4">After graduating from the School of Visual Arts in 2007, they spent two years traveling through Europe, studying classical techniques while developing their contemporary style.</p>
+          <p class="text-lg">Today, their works are exhibited in galleries worldwide and have been featured in numerous art publications.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="py-16 bg-gray-100">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">Artistic Journey</h2>
+      <div class="relative">
+        <!-- Timeline line -->
+        <div class="hidden md:block absolute left-1/2 h-full w-1 bg-blue-600 transform -translate-x-1/2"></div>
+        
+        <!-- Timeline items -->
+        <div class="space-y-8">
+          <!-- Item 1 -->
+          <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 md:pr-12 mb-4 md:mb-0 md:text-right">
+              <h3 class="text-xl font-bold">2007</h3>
+              <p class="text-gray-700">Graduated from School of Visual Arts with honors</p>
+            </div>
+            <div class="hidden md:block w-8 h-8 rounded-full bg-blue-600 mx-auto"></div>
+            <div class="md:w-1/2 md:pl-12">
+              <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-bold mb-2">First Solo Exhibition</h3>
+                <p>"Emerging Visions" at Chelsea Gallery marked the beginning of professional career.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 md:pr-12 mb-4 md:mb-0 md:text-right">
+              <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-bold mb-2">European Tour</h3>
+                <p>Two-year journey studying classical techniques in Italy, France, and Spain.</p>
+              </div>
+            </div>
+            <div class="hidden md:block w-8 h-8 rounded-full bg-blue-600 mx-auto"></div>
+            <div class="md:w-1/2 md:pl-12">
+              <h3 class="text-xl font-bold">2009-2011</h3>
+              <p class="text-gray-700">Developed signature abstract expressionist style</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 md:pr-12 mb-4 md:mb-0 md:text-right">
+              <h3 class="text-xl font-bold">2015</h3>
+              <p class="text-gray-700">Featured in ArtReview's "30 Under 30" list</p>
+            </div>
+            <div class="hidden md:block w-8 h-8 rounded-full bg-blue-600 mx-auto"></div>
+            <div class="md:w-1/2 md:pl-12">
+              <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-bold mb-2">International Recognition</h3>
+                <p>First museum acquisition by the Museum of Modern Art.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artist Statement -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-6 max-w-3xl">
+      <h2 class="text-3xl font-bold text-center mb-8">Artist Statement</h2>
+      <blockquote class="text-xl italic text-center text-gray-700 mb-6">
+        "My work seeks to capture the intangible emotions that color our human experience. Through abstraction, I create spaces where viewers can project their own stories and interpretations."
+      </blockquote>
+      <p class="text-lg text-center">- Artist Name</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <script>
+    // Load navigation and footer
+    fetch('nav.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('nav-placeholder').innerHTML = data;
+      });
+
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      });
+  </script>
+</body>
+</html>
