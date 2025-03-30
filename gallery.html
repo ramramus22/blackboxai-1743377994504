@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive gallery of Artist Name's artwork with full-screen viewing">
+  <title>Artist Name | Gallery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .gallery-slide {
+      transition: transform 0.5s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <!-- Navigation -->
+  <div id="nav-placeholder"></div>
+
+  <!-- Hero Section -->
+  <section class="relative py-32 bg-[url('https://images.pexels.com/photo/abstract-painting-1599360.jpeg')] bg-cover bg-center">
+    <div class="absolute inset-0 bg-black opacity-60"></div>
+    <div class="relative z-10 text-center px-4">
+      <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Gallery</h1>
+      <p class="text-xl text-white">Immersive viewing experience</p>
+    </div>
+  </section>
+
+  <!-- Gallery Controls -->
+  <section class="py-8 bg-white">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <div>
+        <span id="currentSlide" class="font-bold">1</span> of <span id="totalSlides">6</span>
+      </div>
+      <div class="flex space-x-4">
+        <button id="prevBtn" class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
+          <i class="fas fa-chevron-left"></i> Previous
+        </button>
+        <button id="nextBtn" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+          Next <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Slider -->
+  <section class="relative overflow-hidden bg-black">
+    <div id="sliderContainer" class="relative h-screen w-full">
+      <!-- Slide 1 -->
+      <div class="gallery-slide absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500" data-index="1">
+        <img src="https://images.pexels.com/photo/colorful-abstract-painting-3450550.jpeg" alt="Colorful Abstractions" class="max-h-full max-w-full object-contain">
+        <div class="absolute bottom-8 left-0 right-0 text-center text-white bg-black bg-opacity-50 p-4">
+          <h2 class="text-2xl font-bold">Colorful Abstractions</h2>
+          <p>Acrylic on canvas, 2022 | 36" × 48"</p>
+        </div>
+      </div>
+      
+      <!-- Slide 2 -->
+      <div class="gallery-slide absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500" data-index="2">
+        <img src="https://images.pexels.com/photo/abstract-painting-1599356.jpeg" alt="Urban Dreams" class="max-h-full max-w-full object-contain">
+        <div class="absolute bottom-8 left-0 right-0 text-center text-white bg-black bg-opacity-50 p-4">
+          <h2 class="text-2xl font-bold">Urban Dreams</h2>
+          <p>Oil on canvas, 2021 | 48" × 36"</p>
+        </div>
+      </div>
+      
+      <!-- Slide 3 -->
+      <div class="gallery-slide absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500" data-index="3">
+        <img src="https://images.pexels.com/photo/abstract-painting-1599357.jpeg" alt="Oceanic Memories" class="max-h-full max-w-full object-contain">
+        <div class="absolute bottom-8 left-0 right-0 text-center text-white bg-black bg-opacity-50 p-4">
+          <h2 class="text-2xl font-bold">Oceanic Memories</h2>
+          <p>Mixed media, 2023 | 24" × 36"</p>
+        </div>
+      </div>
+      
+      <!-- Slide 4 -->
+      <div class="gallery-slide absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500" data-index="4">
+        <img src="https://images.pexels.com/photo/abstract-painting-1599358.jpeg" alt="Golden Horizons" class="max-h-full max-w-full object-contain">
+        <div class="absolute bottom-8 left-0 right-0 text-center text-white bg-black bg-opacity-50 p-4">
+          <h2 class="text-2xl font-bold">Golden Horizons</h2>
+          <p>Oil and gold leaf, 2020 | 36" × 36"</p>
+        </div>
+      </div>
+      
+      <!-- Slide 5 -->
+      <div class="gallery-slide absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500" data-index="5">
+        <img src="https://images.pexels.com/photo/abstract-painting-1599359.jpeg" alt="Vibrant Echoes" class="max-h-full max-w-full object-contain">
+        <div class="absolute bottom-8 left-0 right-0 text-center text-white bg-black bg-opacity-50 p-4">
+          <h2 class="text-2xl font-bold">Vibrant Echoes</h2>
+          <p>Acrylic on wood, 2022 | 24" × 48"</p>
+        </div>
+      </div>
+      
+      <!-- Slide 6 -->
+      <div class="gallery-slide absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500" data-index="6">
+        <img src="https://images.pexels.com/photo/abstract-painting-1599360.jpeg" alt="Mystic Forms" class="max-h-full max-w-full object-contain">
+        <div class="absolute bottom-8 left-0 right-0 text-center text-white bg-black bg-opacity-50 p-4">
+          <h2 class="text-2xl font-bold">Mystic Forms</h2>
+          <p>Watercolor and ink, 2021 | 18" × 24"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Thumbnail Navigation -->
+  <section class="py-8 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <button class="thumbnail-btn border-2 border-transparent hover:border-blue-600 transition" data-target="1">
+          <img src="https://images.pexels.com/photo/colorful-abstract-painting-3450550.jpeg" alt="Thumbnail 1" class="w-full h-24 object-cover">
+        </button>
+        <button class="thumbnail-btn border-2 border-transparent hover:border-blue-600 transition" data-target="2">
+          <img src="https://images.pexels.com/photo/abstract-painting-1599356.jpeg" alt="Thumbnail 2" class="w-full h-24 object-cover">
+        </button>
+        <button class="thumbnail-btn border-2 border-transparent hover:border-blue-600 transition" data-target="3">
+          <img src="https://images.pexels.com/photo/abstract-painting-1599357.jpeg" alt="Thumbnail 3" class="w-full h-24 object-cover">
+        </button>
+        <button class="thumbnail-btn border-2 border-transparent hover:border-blue-600 transition" data-target="4">
+          <img src="https://images.pexels.com/photo/abstract-painting-1599358.jpeg" alt="Thumbnail 4" class="w-full h-24 object-cover">
+        </button>
+        <button class="thumbnail-btn border-2 border-transparent hover:border-blue-600 transition" data-target="5">
+          <img src="https://images.pexels.com/photo/abstract-painting-1599359.jpeg" alt="Thumbnail 5" class="w-full h-24 object-cover">
+        </button>
+        <button class="thumbnail-btn border-2 border-transparent hover:border-blue-600 transition" data-target="6">
+          <img src="https://images.pexels.com/photo/abstract-painting-1599360.jpeg" alt="Thumbnail 6" class="w-full h-24 object-cover">
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <script>
+    // Load navigation and footer
+    fetch('nav.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('nav-placeholder').innerHTML = data;
+      });
+
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      });
+
+    // Gallery slider functionality
+    const slides = document.querySelectorAll('.gallery-slide');
+    const totalSlides = slides.length;
+    let currentSlide = 1;
+    
+    document.getElementById('totalSlides').textContent = totalSlides;
+    
+    function showSlide(index) {
+      slides.forEach(slide => {
+        slide.classList.remove('opacity-0');
+        slide.classList.add('opacity-0');
+      });
+      
+      const targetSlide = document.querySelector(`.gallery-slide[data-index="${index}"]`);
+      if (targetSlide) {
+        targetSlide.classList.remove('opacity-0');
+        currentSlide = index;
+        document.getElementById('currentSlide').textContent = currentSlide;
+        
+        // Update thumbnail borders
+        document.querySelectorAll('.thumbnail-btn').forEach(btn => {
+          btn.classList.remove('border-blue-600');
+          if (parseInt(btn.dataset.target) === currentSlide) {
+            btn.classList.add('border-blue-600');
+          }
+        });
+      }
+    }
+    
+    function nextSlide() {
+      currentSlide = currentSlide % totalSlides + 1;
+      showSlide(currentSlide);
+    }
+    
+    function prevSlide() {
+      currentSlide = (currentSlide - 2 + totalSlides) % totalSlides + 1;
+      showSlide(currentSlide);
+    }
+    
+    // Initialize
+    showSlide(1);
+    
+    // Event listeners
+    document.getElementById('nextBtn').addEventListener('click', nextSlide);
+    document.getElementById('prevBtn').addEventListener('click', prevSlide);
+    
+    // Thumbnail navigation
+    document.querySelectorAll('.thumbnail-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        showSlide(parseInt(btn.dataset.target));
+      });
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      }
+    });
+  </script>
+</body>
+</html>
